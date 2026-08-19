@@ -1,6 +1,52 @@
 {{- define "main" }}
-<div class="wrap">
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
+{{- $lang := .Site.Language.Lang }}
+{{- $isPT := eq $lang "pt" }}
+{{- $techName := cond $isPT "Tecnologia" "Technology" }}
+{{- $libName := cond $isPT "Liberdade" "Liberty" }}
+{{- $bbqName := cond $isPT "Churrasco" "Barbecue" }}
+{{- $jjName := "Jiu-Jitsu" }}
+
+{{- $s := newScratch }}
+{{- range .Pages }}
+  {{- $cats := .Params.categories }}
+  {{- if in $cats $techName }}
+    {{- $s.Add "tech" (slice .) }}
+  {{- else if in $cats $libName }}
+    {{- $s.Add "liberty" (slice .) }}
+  {{- else if or (in $cats $bbqName) (in $cats $jjName) }}
+    {{- $s.Add "personal" (slice .) }}
+  {{- else }}
+    {{- $s.Add "other" (slice .) }}
+  {{- end }}
+{{- end }}
+
+{{- $groups := slice
+  (dict "title" $techName "pages" ($s.Get "tech") "mod" "")
+  (dict "title" $libName "pages" ($s.Get "liberty") "mod" "")
+  (dict "title" (i18n "writingGroupPersonal") "pages" ($s.Get "personal") "mod" "subordinate")
+  (dict "title" (i18n "writingGroupOther") "pages" ($s.Get "other") "mod" "")
+}}
+
+<div class="writing-surface">
+  <div class="wrap writing-index">
+    <div class="writing-head">
+      <div class="eyebrow eyebrow-dark">{{ i18n "writing" }}</div>
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}<p class="lede writing-lede">{{ . }}</p>{{- end }}
+    </div>
+
+    {{- range $groups }}
+    {{- if .pages }}
+    <section class="writing-group{{ if eq .mod "subordinate" }} writing-group--subordinate{{ end }}">
+      <h2 class="writing-group-title">{{ .title }}</h2>
+      <div class="featured-grid writing-group-grid">
+        {{- range .pages }}
+        {{ partial "post-card.html" . }}
+        {{- end }}
+      </div>
+    </section>
+    {{- end }}
+    {{- end }}
+  </div>
 </div>
 {{- end }}

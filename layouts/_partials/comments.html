@@ -1,4 +1,4 @@
-{{- if eq .Type "posts" }}
+{{- if or (eq .Type "writing") (eq .Type "artigos") }}
 {{ partial "newsletter-form.html" . }}
 {{- if .Site.Params.giscus.repo }}
 <div class="giscus" style="margin-top:2rem;">

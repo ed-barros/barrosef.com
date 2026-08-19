@@ -42,3 +42,9 @@ other = "/pt/contato/"
 
 [aboutURL]
 other = "/pt/sobre/"
+
+[writingGroupPersonal]
+other = "Pessoal"
+
+[writingGroupOther]
+other = "Outro"

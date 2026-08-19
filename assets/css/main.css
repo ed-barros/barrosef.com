@@ -205,6 +205,74 @@ p { margin: 0 0 18px 0; }
 }
 .personal-note p { margin: 0; }
 
+/* ---- Writing index ---- */
+
+.writing-surface {
+  background: var(--surface);
+  color: var(--text-dark);
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.writing-head { margin-bottom: 48px; }
+.writing-head h1 { color: var(--text-dark); margin-top: 12px; }
+.writing-lede { color: var(--muted-dark); max-width: 60ch; }
+.writing-group { margin-top: 56px; }
+.writing-group:first-of-type { margin-top: 0; }
+.writing-group-title {
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dark);
+}
+.writing-group--subordinate .writing-group-title {
+  font-size: 20px;
+  color: var(--muted-dark);
+}
+
+/* ---- Reading surfaces (post + page) ---- */
+
+.reading-surface {
+  background: var(--surface);
+  color: var(--text-dark);
+}
+.reading-surface .wrap-reading {
+  max-width: var(--reading);
+  margin: 0 auto;
+  padding: 72px 32px;
+}
+.reading-surface h1,
+.reading-surface h2,
+.reading-surface h3,
+.reading-surface h4 { color: var(--text-dark); }
+.reading-surface a { color: var(--link-dark); }
+.reading-surface .post-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--link-dark);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.reading-surface .post-title { font-size: 40px; margin-bottom: 28px; }
+.reading-surface .post-content { font-size: 17px; line-height: 1.7; }
+.reading-surface .post-content p,
+.reading-surface .post-content li { color: var(--text-dark); }
+.reading-surface .post-content pre,
+.reading-surface .post-content code { font-family: var(--font-mono); }
+
+/* ---- Taxonomy ---- */
+
+.taxonomy-list { padding-top: 72px; padding-bottom: 72px; }
+.simple-list { list-style: none; margin: 0; padding: 0; }
+.simple-list li { padding: 14px 0; border-top: 1px solid var(--border); }
+.simple-list li:first-child { border-top: none; }
+.simple-list a { color: var(--text); font-size: 18px; }
+.simple-list-count { color: var(--dim); font-size: 14px; margin-left: 6px; }
+
 @media (max-width: 900px) {
   .hero-title { font-size: 38px; }
   .metrics-grid { grid-template-columns: minmax(0, 1fr); }
@@ -212,4 +280,5 @@ p { margin: 0 0 18px 0; }
   .metric:first-child { border-top: none; }
   .practice-grid { grid-template-columns: minmax(0, 1fr); }
   .featured-grid { grid-template-columns: minmax(0, 1fr); }
+  .reading-surface .post-title { font-size: 32px; }
 }

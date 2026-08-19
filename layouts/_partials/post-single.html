@@ -1,0 +1,29 @@
+{{/*
+  Shared post-page body: white reading surface, mono eyebrow (category + date),
+  title, content, then the post-footer partials (newsletter + comments).
+
+  Used by both layouts/writing/page.html (EN) and layouts/artigos/page.html (PT).
+  Hugo's template lookup for this pinned version resolves a regular content
+  page's Kind ("page") to a template literally named "page.html", with a
+  section-scoped layouts/<section>/page.html taking priority over the root
+  layouts/page.html — legacy "single.html" is not consulted. Both section
+  templates call this partial so the markup lives in one place. See
+  layouts/single.html for the (currently unreached, kept for parity) legacy
+  entry point.
+*/}}
+<article class="reading-surface post-single">
+  <div class="wrap-reading">
+    <div class="post-eyebrow">
+      {{- with (index (.GetTerms "categories") 0) }}<span>{{ .LinkTitle }}</span>{{- end }}
+      <span aria-hidden="true">·</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+    {{- if (.Param "comments") }}
+    {{ partial "comments.html" . }}
+    {{- end }}
+  </div>
+</article>

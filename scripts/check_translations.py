@@ -26,10 +26,13 @@ def parse_front_matter(path: Path) -> dict:
     return fields
 
 
+SECTION = {"en": "writing", "pt": "artigos"}
+
+
 def collect_keys(content_dir: Path, lang: str) -> dict:
     """Map translationKey -> post path for non-draft posts in one language."""
     keys = {}
-    posts_dir = content_dir / lang / "posts"
+    posts_dir = content_dir / lang / SECTION[lang]
     for post in sorted(posts_dir.glob("*.md")) if posts_dir.is_dir() else []:
         if post.name == "_index.md":
             continue

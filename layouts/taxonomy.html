@@ -1,0 +1,11 @@
+{{- define "main" }}
+<div class="wrap taxonomy-list">
+  <div class="eyebrow">{{ .Data.Singular | title }}</div>
+  <h1>{{ .Title }}</h1>
+  <ul class="simple-list">
+    {{- range .Pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}
