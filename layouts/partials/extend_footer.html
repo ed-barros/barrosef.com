@@ -1,0 +1,22 @@
+{{- if .Site.Params.analytics.ga4 }}
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;padding:1rem;text-align:center;background:var(--entry);border-top:1px solid var(--border);">
+  <span>{{ i18n "consentText" }}</span>
+  <button id="consent-accept" style="margin:0 .5rem;padding:.3rem 1rem;cursor:pointer;">{{ i18n "consentAccept" }}</button>
+  <button id="consent-decline" style="padding:.3rem 1rem;cursor:pointer;">{{ i18n "consentDecline" }}</button>
+</div>
+<script>
+  (function () {
+    var banner = document.getElementById("cookie-consent");
+    if (!localStorage.getItem("cookie-consent")) banner.style.display = "block";
+    document.getElementById("consent-accept").addEventListener("click", function () {
+      localStorage.setItem("cookie-consent", "accepted");
+      banner.style.display = "none";
+      location.reload(); // reload so the head loader picks up consent
+    });
+    document.getElementById("consent-decline").addEventListener("click", function () {
+      localStorage.setItem("cookie-consent", "declined");
+      banner.style.display = "none";
+    });
+  })();
+</script>
+{{- end }}
