@@ -23,6 +23,7 @@ enableEmoji = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
+  TocOpen = true
   comments = true
   images = ["og-default.png"]
 

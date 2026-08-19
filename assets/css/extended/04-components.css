@@ -42,7 +42,8 @@ code {
   padding: 1.6rem 0;
   transition: none;
 }
-.post-entry:hover { background: none; transform: none; }
+.post-entry:hover,
+.post-entry:focus-within { background: none; transform: none; }
 .entry-header h2 { font-size: 1.7rem; font-weight: 600; line-height: 1.25; }
 .entry-content { color: var(--muted); font-size: 1rem; }
 .entry-footer {
@@ -56,7 +57,12 @@ code {
 .rail-meta, .rail-translations { line-height: 1.5; }
 .rail-toc a { color: var(--muted); text-decoration: none; }
 .rail-toc a:hover { color: var(--accent); }
-.rail-toc .details, .rail-toc summary { display: none; } /* PaperMod's ToC chrome */
+/* Hides only the <summary> disclosure triangle/label; the list itself is
+   the theme's <details>'s child content, which only renders when the
+   <details> is open. This rule depends on TocOpen = true in hugo.toml
+   (forces the theme to emit <details open>) — do not remove that param,
+   or every rail ToC on the site silently disappears again. */
+.rail-toc summary { display: none; }
 
 /* --- Prose ---------------------------------------------------------- */
 .post-content a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
