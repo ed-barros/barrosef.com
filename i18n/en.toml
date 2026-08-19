@@ -51,3 +51,9 @@ other = "Personal"
 
 [writingGroupOther]
 other = "Other"
+
+[taxonomyCategory]
+other = "Category"
+
+[taxonomyTag]
+other = "Tag"

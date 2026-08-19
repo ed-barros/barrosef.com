@@ -4,7 +4,7 @@
   --border: #1b2b3d;
   --text: #dce6f2;
   --muted: #9db3cc;
-  --dim: #5d7086;
+  --dim: #6e8299;
   --accent: #5b8fd6;
   --surface: #ffffff;
   --text-dark: #16233a;
@@ -60,6 +60,7 @@ a:hover { text-decoration: underline; }
   font-size: 16px;
   font-weight: 500;
   color: var(--text);
+  white-space: nowrap;
 }
 .wordmark:hover { text-decoration: none; color: var(--accent); }
 .site-nav {
@@ -257,6 +258,7 @@ p { margin: 0 0 18px 0; }
   margin-bottom: 32px;
   flex-wrap: wrap;
 }
+.featured-head .eyebrow { margin: 0; }
 .eyebrow-dark { color: var(--link-dark); }
 .featured-all {
   font-family: var(--font-mono);
@@ -350,6 +352,36 @@ p { margin: 0 0 18px 0; }
 .reading-surface .post-content pre,
 .reading-surface .post-content code { font-family: var(--font-mono); }
 
+/* ---- Code blocks ----
+   Reading surfaces are white with dark text, so the code surface is a light
+   tint that sits comfortably on white rather than a dark editor slab. Token
+   colours are derived from the palette: link-dark for keywords, muted-dark
+   for comments, and two additional hairline-family hues (a teal and a rust)
+   for strings and numbers, kept low-saturation to match the rest of the
+   restrained palette. */
+.reading-surface .post-content pre {
+  background: #eef2f7;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 20px 24px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+.reading-surface .post-content code {
+  background: #eef2f7;
+  padding: 2px 5px;
+  font-size: 0.88em;
+}
+.reading-surface .post-content pre code { background: none; padding: 0; font-size: 100%; }
+.chroma { color: var(--text-dark); }
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cp, .chroma .cs { color: var(--muted-dark); font-style: italic; }
+.chroma .k, .chroma .kn, .chroma .kd, .chroma .kt, .chroma .kr, .chroma .kc { color: var(--link-dark); font-weight: 600; }
+.chroma .s, .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sd, .chroma .sh { color: #1c6b5a; }
+.chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo { color: #a1481c; }
+.chroma .n, .chroma .nx, .chroma .nf, .chroma .nc, .chroma .na { color: var(--text-dark); }
+
 /* ---- Taxonomy ---- */
 
 .taxonomy-list { padding-top: 72px; padding-bottom: 72px; }
@@ -357,7 +389,6 @@ p { margin: 0 0 18px 0; }
 .simple-list li { padding: 14px 0; border-top: 1px solid var(--border); }
 .simple-list li:first-child { border-top: none; }
 .simple-list a { color: var(--text); font-size: 18px; }
-.simple-list-count { color: var(--dim); font-size: 14px; margin-left: 6px; }
 
 @media (max-width: 900px) {
   .hero-title { font-size: 38px; }
@@ -367,4 +398,17 @@ p { margin: 0 0 18px 0; }
   .practice-grid { grid-template-columns: minmax(0, 1fr); }
   .featured-grid { grid-template-columns: minmax(0, 1fr); }
   .reading-surface .post-title { font-size: 32px; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 20px; }
+  .header-inner { gap: 10px; }
+  .site-nav { gap: 12px; }
+  .site-nav a { font-size: 13px; }
+  .lang-switch { font-size: 12px; gap: 4px; margin-left: 2px; }
+}
+
+@media (max-width: 400px) {
+  .header-inner { flex-wrap: wrap; row-gap: 10px; }
+  .site-nav { flex-wrap: wrap; row-gap: 8px; }
 }

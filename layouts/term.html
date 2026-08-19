@@ -14,7 +14,7 @@
 */ -}}
 {{- define "main" }}
 <div class="wrap taxonomy-list">
-  <div class="eyebrow">{{ .Data.Singular | title }}</div>
+  <div class="eyebrow">{{ if eq .Data.Singular "category" }}{{ i18n "taxonomyCategory" }}{{ else if eq .Data.Singular "tag" }}{{ i18n "taxonomyTag" }}{{ else }}{{ .Data.Singular | title }}{{ end }}</div>
   <h1>{{ .Title }}</h1>
   <ul class="simple-list">
     {{- range .Pages }}

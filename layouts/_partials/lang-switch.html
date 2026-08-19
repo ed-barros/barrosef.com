@@ -2,12 +2,13 @@
   {{- $page := . -}}
   {{- range .Site.Languages }}
   {{- $lang := .Lang -}}
-  {{- if eq $lang $page.Site.Language.Lang }}<span class="lang-on">{{ $lang | upper }}</span>
+  {{- $langName := .LanguageName -}}
+  {{- if eq $lang $page.Site.Language.Lang }}<span class="lang-on" aria-label="{{ $langName }}">{{ $lang | upper }}</span>
   {{- else }}
     {{- $target := "" -}}
     {{- range $page.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end -}}
-    {{- if $target }}<a href="{{ $target }}">{{ $lang | upper }}</a>
-    {{- else }}<a href="{{ if eq $lang "en" }}/{{ else }}/{{ $lang }}/{{ end }}">{{ $lang | upper }}</a>{{ end }}
+    {{- if $target }}<a href="{{ $target }}" hreflang="{{ $lang }}" aria-label="{{ $langName }}">{{ $lang | upper }}</a>
+    {{- else }}<a href="{{ if eq $lang "en" }}/{{ else }}/{{ $lang }}/{{ end }}" hreflang="{{ $lang }}" aria-label="{{ $langName }}">{{ $lang | upper }}</a>{{ end }}
   {{- end }}
   {{- end }}
 </span>

@@ -84,7 +84,7 @@ Fixed appearance; no user-facing theme switch.
 | Hairline / border | `#1b2b3d` |
 | Text on ground | `#dce6f2` |
 | Muted on ground | `#9db3cc` |
-| Dim on ground | `#5d7086` |
+| Dim on ground | `#6e8299` |
 | Accent | `#5b8fd6` |
 | Reading surface | `#ffffff` |
 | Text on white | `#16233a` |
