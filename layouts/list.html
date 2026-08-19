@@ -39,7 +39,7 @@
     {{- if .pages }}
     <section class="writing-group{{ if eq .mod "subordinate" }} writing-group--subordinate{{ end }}">
       <h2 class="writing-group-title">{{ .title }}</h2>
-      <div class="featured-grid writing-group-grid">
+      <div class="featured-grid">
         {{- range .pages }}
         {{ partial "post-card.html" . }}
         {{- end }}

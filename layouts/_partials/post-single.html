@@ -6,10 +6,9 @@
   Hugo's template lookup for this pinned version resolves a regular content
   page's Kind ("page") to a template literally named "page.html", with a
   section-scoped layouts/<section>/page.html taking priority over the root
-  layouts/page.html — legacy "single.html" is not consulted. Both section
-  templates call this partial so the markup lives in one place. See
-  layouts/single.html for the (currently unreached, kept for parity) legacy
-  entry point.
+  layouts/page.html — legacy "single.html" is not consulted, and was removed
+  (confirmed unreachable via `hugo --printUnusedTemplates`). Both section
+  templates call this partial so the markup lives in one place.
 */}}
 <article class="reading-surface post-single">
   <div class="wrap-reading">

@@ -8,6 +8,7 @@
   {{ if or $p.currentRole $p.priorRoles }}
   <p class="hero-role">
     {{- with $p.currentRole }}{{ . }}{{ with $p.company }} · {{ . }}{{ end }}{{ with $p.location }} · {{ . }}{{ end }}{{ end -}}
+    {{- if and $p.currentRole $p.priorRoles }} · {{ end -}}
     {{- with $p.priorRoles }}<span class="hero-prior">{{ i18n "previously" }} {{ . }}</span>{{ end -}}
   </p>
   {{ end }}
@@ -42,19 +43,22 @@
   </div>
 </section>
 
+{{- $featured := first 3 (where .Site.RegularPages "Section" "in" (slice "writing" "artigos")) }}
+{{ with $featured }}
 <section class="featured">
   <div class="wrap">
     <div class="featured-head">
       <div class="eyebrow eyebrow-dark">{{ i18n "writing" }}</div>
-      <a class="featured-all" href="{{ (index .Site.Menus.main 0).URL | absURL }}">{{ i18n "allWriting" }} →</a>
+      <a class="featured-all" href="{{ i18n "writingIndexURL" }}">{{ i18n "allWriting" }} →</a>
     </div>
     <div class="featured-grid">
-      {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "writing" "artigos")) }}
+      {{ range . }}
       {{ partial "post-card.html" . }}
       {{ end }}
     </div>
   </div>
 </section>
+{{ end }}
 
 <section class="wrap personal-note">
   <p>{{ i18n "personalNote" }} <a href="{{ i18n "aboutURL" }}">{{ i18n "moreAboutThat" }}</a>.</p>

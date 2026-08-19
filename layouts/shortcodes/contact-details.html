@@ -1,0 +1,11 @@
+{{- /*
+  Renders the reach-him block on the Contact page from config, so content
+  files never hardcode an address. .Site.Params.profile.email renders only
+  when set (empty today); the social links reuse the same social-icons
+  partial and params.socialIcons list as the footer, so LinkedIn/GitHub/etc.
+  are never duplicated as separate config.
+*/ -}}
+{{- with .Site.Params.profile.email }}
+<p class="contact-email"><a href="mailto:{{ . }}">{{ . }}</a></p>
+{{- end }}
+{{ partial "social-icons.html" . }}

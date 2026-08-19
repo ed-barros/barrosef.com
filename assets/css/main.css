@@ -42,6 +42,92 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
 
+/* ---- Header, nav, footer ---- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.wordmark {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+.wordmark:hover { text-decoration: none; color: var(--accent); }
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.site-nav a {
+  color: var(--muted);
+  font-size: 15px;
+}
+.site-nav a:hover { color: var(--text); text-decoration: none; }
+.lang-switch {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  gap: 6px;
+}
+.lang-switch a { color: var(--dim); }
+.lang-switch a:hover { color: var(--text); text-decoration: none; }
+.lang-switch .lang-on { color: var(--accent); }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 72px;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.footer-name {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.footer-email {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.social-icon {
+  display: inline-flex;
+}
+.social-icon svg { display: block; }
+.social-icon:hover { opacity: 0.7; text-decoration: none; }
+
+/* ---- Contact page ---- */
+/* .contact-email and .social-icon pick up their color from the surrounding
+   context's existing link rules (global `a` on the dark ground footer,
+   `.reading-surface a` on the white contact page) — no override needed. */
+
+.contact-email {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+
 h1, h2, h3, h4 { font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px 0; }
 h1 { font-size: 46px; }
 h2 { font-size: 28px; letter-spacing: -0.015em; }

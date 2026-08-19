@@ -40,6 +40,9 @@ other = "Mais sobre isso"
 [contactURL]
 other = "/pt/contato/"
 
+[writingIndexURL]
+other = "/pt/artigos/"
+
 [aboutURL]
 other = "/pt/sobre/"
 
