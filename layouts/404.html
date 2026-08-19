@@ -1,0 +1,10 @@
+{{- define "main" }}
+<div class="not-found" style="text-align:center;padding:4rem 1rem;">
+  <h1 style="font-size:4rem;">404</h1>
+  <p><strong>Page not found.</strong> The page you're looking for doesn't exist or has moved.</p>
+  <p><a href="{{ "/" | absURL }}">Go to the home page →</a></p>
+  <hr style="margin:2rem auto;max-width:20rem;">
+  <p lang="pt-br"><strong>Página não encontrada.</strong> A página que você procura não existe ou foi movida.</p>
+  <p lang="pt-br"><a href="{{ "pt/" | absURL }}">Ir para a página inicial →</a></p>
+</div>
+{{- end }}
