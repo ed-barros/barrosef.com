@@ -1,0 +1,93 @@
+/* Design tokens. Loaded after PaperMod core, so these win.
+   Dark mode is declared twice on purpose: PaperMod's inline script sets
+   data-theme, but a no-JS reader must still get lamplight from the media query. */
+
+:root {
+  --paper: #f4ece0;
+  --surface: #faf5ec;
+  --ink: #2f2a24;
+  --muted: #6b6157;
+  --rule: #ddd0bd;
+  --accent: #6d3f1d;
+  --code-surface: #ece0cd;
+
+  --prose-width: 660px;
+  --rail-width: 180px;
+  --rail-gap: 40px;
+
+  --theme: var(--paper);
+  --entry: var(--surface);
+  --primary: var(--ink);
+  --secondary: var(--muted);
+  --tertiary: var(--rule);
+  --content: var(--ink);
+  --border: var(--rule);
+  --code-bg: var(--code-surface);
+  --code-block-bg: var(--code-surface);
+
+  --radius: 0;
+  --main-width: 880px;
+  --nav-width: 880px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1c1714;
+    --surface: #241d19;
+    --ink: #e8ddcb;
+    --muted: #a2957f;
+    --rule: #3a2f27;
+    --accent: #c98a4b;
+    --code-surface: #141110;
+
+    /* Re-declare the PaperMod mapping layer here too: PaperMod's own
+       theme-vars.css re-declares these same nine variables under
+       :root[data-theme="dark"] at equal specificity (0,2,0), so a
+       single mapping in the bare :root above loses to it by load
+       order for any JS-enabled dark-preference visitor. */
+    --theme: var(--paper);
+    --entry: var(--surface);
+    --primary: var(--ink);
+    --secondary: var(--muted);
+    --tertiary: var(--rule);
+    --content: var(--ink);
+    --border: var(--rule);
+    --code-bg: var(--code-surface);
+    --code-block-bg: var(--code-surface);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #1c1714;
+  --surface: #241d19;
+  --ink: #e8ddcb;
+  --muted: #a2957f;
+  --rule: #3a2f27;
+  --accent: #c98a4b;
+  --code-surface: #141110;
+
+  /* Same PaperMod mapping layer, repeated for the explicit dark-theme
+     attribute (specificity 0,2,0) so it wins over PaperMod's own
+     theme-vars.css rule of equal specificity regardless of load order. */
+  --theme: var(--paper);
+  --entry: var(--surface);
+  --primary: var(--ink);
+  --secondary: var(--muted);
+  --tertiary: var(--rule);
+  --content: var(--ink);
+  --border: var(--rule);
+  --code-bg: var(--code-surface);
+  --code-block-bg: var(--code-surface);
+
+  color-scheme: dark;
+}
+
+body {
+  background: var(--theme);
+  color: var(--content);
+}
+
+a { color: var(--accent); }

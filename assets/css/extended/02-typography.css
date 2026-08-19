@@ -1,0 +1,79 @@
+/* Type system: self-hosted EB Garamond.
+   Source: upstream octaviopardo/EBGaramond12 webfont build (SIL OFL 1.1),
+   subsetted to Latin + Latin-1 Supplement + General Punctuation (covers
+   English and Portuguese) with fontTools. Chosen over the Google Fonts
+   build because Google's hosted webfont strips the smcp/onum GSUB
+   features this design depends on; the upstream source keeps them.
+   smcp (true small caps) is only retained in the 400 weight — that's the
+   only weight the .smallcaps utility is applied to (rail/nav text at
+   Task 3/4). onum (old-style figures) is retained in all three weights.
+   Redistributed under the SIL Open Font License 1.1; the license text
+   ships alongside the binaries at /fonts/OFL.txt (static/fonts/OFL.txt). */
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ebgaramond-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ebgaramond-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/ebgaramond-600.woff2") format("woff2");
+}
+
+:root {
+  --font-serif: "EB Garamond", Garamond, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+body,
+.post-content,
+.post-title,
+.entry-header h2,
+.page-header h1 {
+  font-family: var(--font-serif);
+}
+
+body {
+  font-size: 20px;
+  line-height: 1.65;
+  /* Old-style figures: dates sit on the baseline instead of standing up. */
+  font-variant-numeric: oldstyle-nums;
+  -webkit-font-feature-settings: "onum" 1, "kern" 1, "liga" 1;
+  font-feature-settings: "onum" 1, "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Garamond goes thin and gauzy on a dark ground. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body { font-weight: 500; letter-spacing: 0.01em; }
+}
+:root[data-theme="dark"] body { font-weight: 500; letter-spacing: 0.01em; }
+
+.post-title { font-size: 2.2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+.post-content h2 { font-size: 1.6rem; font-weight: 600; }
+.post-content h3 { font-size: 1.3rem; font-weight: 600; }
+
+/* True small caps (smcp is real in the 400 weight face — see @font-face
+   comment above). Do not apply this class to 600-weight or italic text;
+   those faces don't carry smcp and would fall back to synthesized caps. */
+.smallcaps {
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp" 1, "onum" 1;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+}
+
+.post-content blockquote { font-style: italic; }
+code, pre, kbd { font-family: var(--font-mono); font-size: 0.85em; }
