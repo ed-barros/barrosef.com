@@ -24,6 +24,7 @@ enableEmoji = true
   ShowCodeCopyButtons = true
   ShowToc = true
   comments = true
+  images = ["og-default.png"]
 
   [params.analytics]
     ga4 = "" # e.g. "G-XXXXXXXXXX"; empty disables GA entirely
