@@ -1,0 +1,5 @@
+<article class="post-card">
+  <div class="post-card-cat">{{ with (index (.GetTerms "categories") 0) }}{{ .LinkTitle }}{{ end }}</div>
+  <h3 class="post-card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  {{ with .Description }}<p class="post-card-desc">{{ . }}</p>{{ end }}
+</article>

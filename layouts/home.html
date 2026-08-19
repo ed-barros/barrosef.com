@@ -1,6 +1,62 @@
-{{- define "main" }}
-<div class="wrap">
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-</div>
-{{- end }}
+{{ define "main" }}
+{{ $p := .Site.Params.profile }}
+
+<section class="hero wrap">
+  <div class="eyebrow">{{ i18n "kicker" }}</div>
+  <h1 class="hero-title">{{ with $p.positioning }}{{ . }}{{ else }}{{ i18n "heroDefault" }}{{ end }}</h1>
+  {{ with $p.summary }}<p class="lede hero-lede">{{ . }}</p>{{ end }}
+  {{ if or $p.currentRole $p.priorRoles }}
+  <p class="hero-role">
+    {{- with $p.currentRole }}{{ . }}{{ with $p.company }} · {{ . }}{{ end }}{{ with $p.location }} · {{ . }}{{ end }}{{ end -}}
+    {{- with $p.priorRoles }}<span class="hero-prior">{{ i18n "previously" }} {{ . }}</span>{{ end -}}
+  </p>
+  {{ end }}
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="{{ "contact/" | absLangURL }}">{{ i18n "getInTouch" }}</a>
+    {{ with $p.linkedin }}<a class="btn btn-ghost" href="{{ . }}">LinkedIn</a>{{ end }}
+  </div>
+</section>
+
+{{ with $p.metrics }}
+<section class="metrics">
+  <div class="wrap metrics-grid">
+    {{ range . }}
+    <div class="metric">
+      <div class="metric-value">{{ .value }}</div>
+      <div class="metric-label">{{ .label }}</div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<section class="practice wrap">
+  <div class="eyebrow">{{ i18n "capabilities" }}</div>
+  <div class="practice-grid">
+    {{ range .Site.Data.practice.items }}
+    <article class="practice-card">
+      <h3>{{ index . (printf "title_%s" $.Site.Language.Lang) }}</h3>
+      <p>{{ index . (printf "body_%s" $.Site.Language.Lang) }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="featured">
+  <div class="wrap">
+    <div class="featured-head">
+      <div class="eyebrow eyebrow-dark">{{ i18n "writing" }}</div>
+      <a class="featured-all" href="{{ (index .Site.Menus.main 0).URL | absURL }}">{{ i18n "allWriting" }} →</a>
+    </div>
+    <div class="featured-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "writing" "artigos")) }}
+      {{ partial "post-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="wrap personal-note">
+  <p>{{ i18n "personalNote" }} <a href="{{ "about/" | absLangURL }}">{{ i18n "moreAboutThat" }}</a>.</p>
+</section>
+{{ end }}

@@ -1,0 +1,13 @@
+items:
+  - title_en: "Engineering leadership"
+    body_en: "Hiring, structure, and the operating cadence that makes delivery predictable instead of heroic."
+    title_pt: "Liderança em engenharia"
+    body_pt: "Contratação, estrutura e a cadência operacional que torna a entrega previsível em vez de heroica."
+  - title_en: "Platform & architecture"
+    body_en: "Systems designed for the load they will actually carry, with the trade-offs written down rather than assumed."
+    title_pt: "Plataforma e arquitetura"
+    body_pt: "Sistemas projetados para a carga real, com os trade-offs documentados em vez de presumidos."
+  - title_en: "Technology strategy"
+    body_en: "Turning business constraints into direction a board can follow and a team can execute."
+    title_pt: "Estratégia de tecnologia"
+    body_pt: "Traduzir restrições de negócio em direção que o conselho acompanha e o time executa."
