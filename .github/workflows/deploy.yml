@@ -50,9 +50,19 @@ jobs:
         continue-on-error: true
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --scheme https --scheme http public/
+          # Social platforms throttle or hang on automated requests, which stalled
+          # a deploy for 15+ minutes once the six profile links were added. They are
+          # excluded here rather than tolerated: this step cannot block a deploy, so
+          # its only job is to surface genuinely broken outbound links quickly.
+          args: >-
+            --no-progress --scheme https --scheme http
+            --timeout 10 --max-retries 1 --max-concurrency 8
+            --exclude 'linkedin\.com' --exclude 'instagram\.com'
+            --exclude 'facebook\.com' --exclude 'tiktok\.com' --exclude 'x\.com'
+            public/
           lycheeVersion: v0.24.2
           fail: true
+        timeout-minutes: 5
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
