@@ -1,0 +1,95 @@
+baseURL = "https://barrosef.com/"
+title = "Ed Barros"
+theme = "PaperMod"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableEmoji = true
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"] # JSON feeds PaperMod's built-in fuzzy search
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  comments = true
+
+  [params.analytics]
+    ga4 = "" # e.g. "G-XXXXXXXXXX"; empty disables GA entirely
+
+  [params.newsletter]
+    kitFormId = "" # Kit (ConvertKit) embed form UID; empty hides the form
+
+  [params.giscus]
+    repo = ""       # "ed-barros/barrosef.com" once Discussions is enabled
+    repoId = ""
+    category = ""
+    categoryId = ""
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-us"
+    contentDir = "content/en"
+    weight = 1
+    [languages.en.params]
+      homeInfoParams = { Title = "Ed Barros", Content = "Technology, barbecue, jiu-jitsu, and liberty." }
+    [[languages.en.menus.main]]
+      name = "Categories"
+      url = "/categories/"
+      weight = 10
+    [[languages.en.menus.main]]
+      name = "Tags"
+      url = "/tags/"
+      weight = 20
+    [[languages.en.menus.main]]
+      name = "About"
+      url = "/about/"
+      weight = 30
+    [[languages.en.menus.main]]
+      name = "Newsletter"
+      url = "/newsletter/"
+      weight = 40
+    [[languages.en.menus.main]]
+      name = "Search"
+      url = "/search/"
+      weight = 50
+
+  [languages.pt]
+    languageName = "Português"
+    languageCode = "pt-br"
+    contentDir = "content/pt"
+    weight = 2
+    [languages.pt.params]
+      homeInfoParams = { Title = "Ed Barros", Content = "Tecnologia, churrasco, jiu-jitsu e liberdade." }
+    [[languages.pt.menus.main]]
+      name = "Categorias"
+      url = "/pt/categories/"
+      weight = 10
+    [[languages.pt.menus.main]]
+      name = "Tags"
+      url = "/pt/tags/"
+      weight = 20
+    [[languages.pt.menus.main]]
+      name = "Sobre"
+      url = "/pt/sobre/"
+      weight = 30
+    [[languages.pt.menus.main]]
+      name = "Newsletter"
+      url = "/pt/newsletter/"
+      weight = 40
+    [[languages.pt.menus.main]]
+      name = "Busca"
+      url = "/pt/search/"
+      weight = 50
