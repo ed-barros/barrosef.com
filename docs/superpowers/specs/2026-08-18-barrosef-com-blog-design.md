@@ -1,7 +1,7 @@
 # barrosef.com — Bilingual Blog Design Spec
 
 **Date:** 2026-08-18
-**Status:** Approved in brainstorming; pending final spec review
+**Status:** Approved (2026-08-18)
 **Sub-project:** 1 of the barrosef.com personal platform (blog → content strategy → Digital Marketing Hub → derived products)
 
 ## Purpose
