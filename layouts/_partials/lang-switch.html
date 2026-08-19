@@ -1,0 +1,7 @@
+<span class="lang-switch">
+  {{- range .Site.Languages }}
+  {{- if eq . $.Site.Language }}<span class="lang-on">{{ .Lang | upper }}</span>
+  {{- else }}{{ with $.Site.GetPage "/" }}{{ end }}<a href="{{ if eq .Lang "en" }}/{{ else }}/{{ .Lang }}/{{ end }}">{{ .Lang | upper }}</a>
+  {{- end }}
+  {{- end }}
+</span>

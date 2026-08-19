@@ -1,0 +1,32 @@
+:root {
+  --ground: #0b1622;
+  --panel: #111f30;
+  --border: #1b2b3d;
+  --text: #dce6f2;
+  --muted: #9db3cc;
+  --dim: #5d7086;
+  --accent: #5b8fd6;
+  --surface: #ffffff;
+  --text-dark: #16233a;
+  --muted-dark: #5d6b7d;
+  --link-dark: #1d4e89;
+  --wrap: 1120px;
+  --reading: 680px;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
