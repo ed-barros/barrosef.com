@@ -41,14 +41,17 @@ jobs:
       - name: Internal link check (blocking)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --offline --no-progress --include-fragments public/
+          args: --offline --no-progress --include-fragments --root-dir "${{ github.workspace }}/public" public/
+          lycheeVersion: v0.24.2
           fail: true
 
+      # continue-on-error swallows the failure at job level; fail: true still marks the step red so warnings stay visible
       - name: External link check (warn only)
         continue-on-error: true
         uses: lycheeverse/lychee-action@v2
         with:
           args: --no-progress --scheme https --scheme http public/
+          lycheeVersion: v0.24.2
           fail: true
 
       - name: Upload site artifact

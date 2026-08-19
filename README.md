@@ -12,6 +12,8 @@ by `.github/workflows/deploy.yml` on push to `main`.
 4. Set `draft: false` in **both** files; `make check` to verify locally.
 5. Push to `main` — live in ~1 minute. CI blocks half-translated pairs.
 
+Run `make test` to exercise the translation checker's own test suite.
+
 ## Configuration knobs (`hugo.toml`)
 
 - `params.analytics.ga4` — GA4 measurement ID (loads only after cookie consent).
