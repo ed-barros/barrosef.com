@@ -1,0 +1,11 @@
+[consentText]
+other = "Este site usa cookies para análises anônimas somente se você aceitar."
+
+[consentAccept]
+other = "Aceitar"
+
+[consentDecline]
+other = "Recusar"
+
+[newsletterTitle]
+other = "Receba novos posts por e-mail"
