@@ -9,3 +9,51 @@ other = "Decline"
 
 [newsletterTitle]
 other = "Get new posts by email"
+
+[kicker]
+other = "Technology leadership"
+
+[heroDefault]
+other = "I build engineering organisations that ship."
+
+[previously]
+other = "Previously"
+
+[getInTouch]
+other = "Get in touch"
+
+[capabilities]
+other = "What I do"
+
+[writing]
+other = "Writing"
+
+[allWriting]
+other = "All writing"
+
+[personalNote]
+other = "There is more to life than work — barbecue, jiu-jitsu, and a fair amount of opinion on liberty."
+
+[moreAboutThat]
+other = "More about that"
+
+[contactURL]
+other = "/contact/"
+
+[writingIndexURL]
+other = "/writing/"
+
+[aboutURL]
+other = "/about/"
+
+[writingGroupPersonal]
+other = "Personal"
+
+[writingGroupOther]
+other = "Other"
+
+[taxonomyCategory]
+other = "Category"
+
+[taxonomyTag]
+other = "Tag"

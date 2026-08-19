@@ -9,3 +9,51 @@ other = "Recusar"
 
 [newsletterTitle]
 other = "Receba novos posts por e-mail"
+
+[kicker]
+other = "Liderança em tecnologia"
+
+[heroDefault]
+other = "Construo organizações de engenharia que entregam."
+
+[previously]
+other = "Anteriormente"
+
+[getInTouch]
+other = "Entre em contato"
+
+[capabilities]
+other = "O que eu faço"
+
+[writing]
+other = "Artigos"
+
+[allWriting]
+other = "Todos os artigos"
+
+[personalNote]
+other = "Há mais na vida além do trabalho — churrasco, jiu-jitsu e uma boa dose de opinião sobre liberdade."
+
+[moreAboutThat]
+other = "Mais sobre isso"
+
+[contactURL]
+other = "/pt/contato/"
+
+[writingIndexURL]
+other = "/pt/artigos/"
+
+[aboutURL]
+other = "/pt/sobre/"
+
+[writingGroupPersonal]
+other = "Pessoal"
+
+[writingGroupOther]
+other = "Outro"
+
+[taxonomyCategory]
+other = "Categoria"
+
+[taxonomyTag]
+other = "Etiqueta"

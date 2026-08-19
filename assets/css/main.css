@@ -1,0 +1,414 @@
+:root {
+  --ground: #0b1622;
+  --panel: #111f30;
+  --border: #1b2b3d;
+  --text: #dce6f2;
+  --muted: #9db3cc;
+  --dim: #6e8299;
+  --accent: #5b8fd6;
+  --surface: #ffffff;
+  --text-dark: #16233a;
+  --muted-dark: #5d6b7d;
+  --link-dark: #1d4e89;
+  --wrap: 1120px;
+  --reading: 680px;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* IBM Plex Sans is self-hosted as a single variable-font file (static/fonts/
+   ibmplexsans-400.woff2, published to /fonts/) covering the wght axis from
+   100-700, so one @font-face with a weight range lets the browser pick the
+   correct instance for 400/500/600 use instead of us shipping three
+   duplicate ~45KB downloads or declaring three rules against one file.
+   IBM Plex Mono ships as true static per-weight files, so it keeps one
+   @font-face per weight. */
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 100 700; font-display: swap; src: url("/fonts/ibmplexsans-400.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/ibmplexmono-400.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/ibmplexmono-500.woff2") format("woff2"); }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
+
+/* ---- Header, nav, footer ---- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.wordmark {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+.wordmark:hover { text-decoration: none; color: var(--accent); }
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.site-nav a {
+  color: var(--muted);
+  font-size: 15px;
+}
+.site-nav a:hover { color: var(--text); text-decoration: none; }
+.lang-switch {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  gap: 6px;
+}
+.lang-switch a { color: var(--dim); }
+.lang-switch a:hover { color: var(--text); text-decoration: none; }
+.lang-switch .lang-on { color: var(--accent); }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 72px;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.footer-name {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.footer-email {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.social-icon {
+  display: inline-flex;
+}
+.social-icon svg { display: block; }
+.social-icon:hover { opacity: 0.7; text-decoration: none; }
+
+/* ---- Contact page ---- */
+/* .contact-email and .social-icon pick up their color from the surrounding
+   context's existing link rules (global `a` on the dark ground footer,
+   `.reading-surface a` on the white contact page) — no override needed. */
+
+.contact-email {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+
+h1, h2, h3, h4 { font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px 0; }
+h1 { font-size: 46px; }
+h2 { font-size: 28px; letter-spacing: -0.015em; }
+h3 { font-size: 20px; letter-spacing: -0.01em; }
+p { margin: 0 0 18px 0; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.lede { font-size: 20px; line-height: 1.6; color: var(--muted); }
+
+/* ---- Homepage ---- */
+
+.hero {
+  padding-top: 104px;
+  padding-bottom: 64px;
+}
+.hero-title {
+  font-size: 58px;
+  max-width: 20ch;
+  margin-bottom: 20px;
+}
+.hero-lede {
+  max-width: 60ch;
+  margin-bottom: 20px;
+}
+.hero-role {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0 0 32px 0;
+}
+.hero-prior {
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 0;
+  text-decoration: none;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary {
+  background: var(--accent);
+  color: #08121d;
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { border-color: var(--accent); }
+
+.metrics {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+.metric {
+  padding: 32px;
+  border-left: 1px solid var(--border);
+  text-align: left;
+}
+.metric:first-child { border-left: none; }
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.metric-label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.practice {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.practice .eyebrow {
+  margin-bottom: 24px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.practice-card {
+  background: var(--panel);
+  border-top: 2px solid var(--accent);
+  padding: 32px;
+}
+.practice-card h3 { margin-bottom: 12px; }
+.practice-card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.featured {
+  background: var(--surface);
+  color: var(--text-dark);
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.featured-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.featured-head .eyebrow { margin: 0; }
+.eyebrow-dark { color: var(--link-dark); }
+.featured-all {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--link-dark);
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.post-card-cat {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--link-dark);
+  margin-bottom: 10px;
+}
+.post-card-title { margin-bottom: 8px; }
+.post-card-title a { color: var(--text-dark); }
+.post-card-title a:hover { text-decoration: underline; }
+.post-card-desc { color: var(--muted-dark); font-size: 15px; margin: 0; }
+
+.personal-note {
+  padding-top: 40px;
+  padding-bottom: 72px;
+  border-top: 1px solid var(--border);
+  color: var(--dim);
+  font-size: 15px;
+}
+.personal-note p { margin: 0; }
+
+/* ---- Writing index ---- */
+
+.writing-surface {
+  background: var(--surface);
+  color: var(--text-dark);
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.writing-head { margin-bottom: 48px; }
+.writing-head h1 { color: var(--text-dark); margin-top: 12px; }
+.writing-lede { color: var(--muted-dark); max-width: 60ch; }
+.writing-group { margin-top: 56px; }
+.writing-group:first-of-type { margin-top: 0; }
+.writing-group-title {
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dark);
+}
+.writing-group--subordinate .writing-group-title {
+  font-size: 20px;
+  color: var(--muted-dark);
+}
+
+/* ---- Reading surfaces (post + page) ---- */
+
+.reading-surface {
+  background: var(--surface);
+  color: var(--text-dark);
+}
+.reading-surface .wrap-reading {
+  max-width: var(--reading);
+  margin: 0 auto;
+  padding: 72px 32px;
+}
+.reading-surface h1,
+.reading-surface h2,
+.reading-surface h3,
+.reading-surface h4 { color: var(--text-dark); }
+.reading-surface a { color: var(--link-dark); }
+.reading-surface .post-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--link-dark);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.reading-surface .post-title { font-size: 40px; margin-bottom: 28px; }
+.reading-surface .post-content { font-size: 17px; line-height: 1.7; }
+.reading-surface .post-content p,
+.reading-surface .post-content li { color: var(--text-dark); }
+.reading-surface .post-content pre,
+.reading-surface .post-content code { font-family: var(--font-mono); }
+
+/* ---- Code blocks ----
+   Reading surfaces are white with dark text, so the code surface is a light
+   tint that sits comfortably on white rather than a dark editor slab. Token
+   colours are derived from the palette: link-dark for keywords, muted-dark
+   for comments, and two additional hairline-family hues (a teal and a rust)
+   for strings and numbers, kept low-saturation to match the rest of the
+   restrained palette. */
+.reading-surface .post-content pre {
+  background: #eef2f7;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 20px 24px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+.reading-surface .post-content code {
+  background: #eef2f7;
+  padding: 2px 5px;
+  font-size: 0.88em;
+}
+.reading-surface .post-content pre code { background: none; padding: 0; font-size: 100%; }
+.chroma { color: var(--text-dark); }
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cp, .chroma .cs { color: var(--muted-dark); font-style: italic; }
+.chroma .k, .chroma .kn, .chroma .kd, .chroma .kt, .chroma .kr, .chroma .kc { color: var(--link-dark); font-weight: 600; }
+.chroma .s, .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sd, .chroma .sh { color: #1c6b5a; }
+.chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo { color: #a1481c; }
+.chroma .n, .chroma .nx, .chroma .nf, .chroma .nc, .chroma .na { color: var(--text-dark); }
+
+/* ---- Taxonomy ---- */
+
+.taxonomy-list { padding-top: 72px; padding-bottom: 72px; }
+.simple-list { list-style: none; margin: 0; padding: 0; }
+.simple-list li { padding: 14px 0; border-top: 1px solid var(--border); }
+.simple-list li:first-child { border-top: none; }
+.simple-list a { color: var(--text); font-size: 18px; }
+
+@media (max-width: 900px) {
+  .hero-title { font-size: 38px; }
+  .metrics-grid { grid-template-columns: minmax(0, 1fr); }
+  .metric { border-left: none; border-top: 1px solid var(--border); }
+  .metric:first-child { border-top: none; }
+  .practice-grid { grid-template-columns: minmax(0, 1fr); }
+  .featured-grid { grid-template-columns: minmax(0, 1fr); }
+  .reading-surface .post-title { font-size: 32px; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 20px; }
+  .header-inner { gap: 10px; }
+  .site-nav { gap: 12px; }
+  .site-nav a { font-size: 13px; }
+  .lang-switch { font-size: 12px; gap: 4px; margin-left: 2px; }
+}
+
+@media (max-width: 400px) {
+  .header-inner { flex-wrap: wrap; row-gap: 10px; }
+  .site-nav { flex-wrap: wrap; row-gap: 8px; }
+}

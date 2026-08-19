@@ -1,0 +1,25 @@
+{{- /*
+  Kind="term" page (e.g. /categories/technology/) — the pages carrying one
+  taxonomy term. .Pages here is the content pages tagged with this term
+  (contrast layouts/taxonomy.html, the Kind="taxonomy" list-of-terms page,
+  where the same .Pages field instead returns the term pages themselves —
+  Hugo's .Pages is polymorphic on the page Kind, so both templates can share
+  this shape). This file was previously misnamed "terms.html", which Hugo
+  never dispatches to (the correct name is singular "term.html"); pages fell
+  through to layouts/list.html instead, rendering the pillar-grouped writing
+  index markup on a taxonomy page. Its original content also used
+  .Data.Terms.Alphabetical, which is only meaningful on the taxonomy list
+  page, not here — kept the simple ground-colour list but swapped in the
+  fields that are valid for Kind="term".
+*/ -}}
+{{- define "main" }}
+<div class="wrap taxonomy-list">
+  <div class="eyebrow">{{ if eq .Data.Singular "category" }}{{ i18n "taxonomyCategory" }}{{ else if eq .Data.Singular "tag" }}{{ i18n "taxonomyTag" }}{{ else }}{{ .Data.Singular | title }}{{ end }}</div>
+  <h1>{{ .Title }}</h1>
+  <ul class="simple-list">
+    {{- range .Pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}

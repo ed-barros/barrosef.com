@@ -1,0 +1,8 @@
+{{- /*
+  Section-scoped override for post pages (content/pt/artigos/*.md).
+  Mirrors layouts/writing/page.html for the Portuguese section. See
+  layouts/_partials/post-single.html for the shared markup.
+*/ -}}
+{{- define "main" }}
+{{ partial "post-single.html" . }}
+{{- end }}

@@ -1,70 +1,77 @@
 baseURL = "https://barrosef.com/"
 title = "Ed Barros"
-theme = "PaperMod"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
-enableEmoji = true
 
 [pagination]
-  pagerSize = 10
+  pagerSize = 20
 
 [taxonomies]
   category = "categories"
   tag = "tags"
 
-[outputs]
-  home = ["HTML", "RSS", "JSON"] # JSON feeds PaperMod's built-in fuzzy search
-
 [markup]
   [markup.highlight]
-    noClasses = false # emit .chroma classes so our palette-derived syntax scheme in 04-components.css applies, instead of Hugo's default inline Monokai colors
+    noClasses = false
+    lineNos = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
 
 [params]
-  defaultTheme = "auto"
-  ShowReadingTime = true
-  ShowShareButtons = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowToc = true
-  TocOpen = true
+  description = "Technology leadership — writing on engineering, systems and liberty."
   comments = true
-  images = ["og-default.png"]
+
+  # Owner's professional facts. EVERY homepage block that uses these renders
+  # only when its value is non-empty, so blanks are invisible, never brackets.
+  [params.profile]
+    positioning = ""      # hero headline; falls back to the default in home.html
+    summary = ""          # one sentence under the headline
+    currentRole = ""
+    company = ""
+    location = ""
+    priorRoles = ""
+    email = ""
+    linkedin = "https://www.linkedin.com/in/barrosef/"
+
+  # Track record. Empty list hides the whole band.
+  # [[params.profile.metrics]]
+  #   value = "12"
+  #   label = "years leading engineering teams"
 
   [params.analytics]
-    ga4 = "" # e.g. "G-XXXXXXXXXX"; empty disables GA entirely
+    ga4 = ""
 
   [params.newsletter]
-    kitFormId = "" # Kit (ConvertKit) embed form UID; empty hides the form
+    kitFormId = ""
 
-  [[params.socialIcons]]
-    name = "instagram"
-    url = "https://www.instagram.com/barrosef/"
+  [params.giscus]
+    repo = ""
+    repoId = ""
+    category = ""
+    categoryId = ""
+
   [[params.socialIcons]]
     name = "linkedin"
     url = "https://www.linkedin.com/in/barrosef/"
   [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/barrosef"
+  [[params.socialIcons]]
     name = "x"
     url = "https://x.com/barrosef2"
+  [[params.socialIcons]]
+    name = "instagram"
+    url = "https://www.instagram.com/barrosef/"
   [[params.socialIcons]]
     name = "tiktok"
     url = "https://www.tiktok.com/@barrosef"
   [[params.socialIcons]]
     name = "facebook"
     url = "https://www.facebook.com/ed.barros.9231"
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/barrosef"
-
-  [params.giscus]
-    repo = ""       # "ed-barros/barrosef.com" once Discussions is enabled
-    repoId = ""
-    category = ""
-    categoryId = ""
-
-  [params.assets]
-    theme_color = "#f4ece0"
-    msapplication_TileColor = "#f4ece0"
 
 [languages]
   [languages.en]
@@ -72,53 +79,33 @@ enableEmoji = true
     languageCode = "en-us"
     contentDir = "content/en"
     weight = 1
-    [languages.en.params]
-      homeInfoParams = { Title = "Ed Barros", Content = "Technology, barbecue, jiu-jitsu, and liberty." }
     [[languages.en.menus.main]]
-      name = "Categories"
-      url = "/categories/"
+      name = "Writing"
+      url = "/writing/"
       weight = 10
-    [[languages.en.menus.main]]
-      name = "Tags"
-      url = "/tags/"
-      weight = 20
     [[languages.en.menus.main]]
       name = "About"
       url = "/about/"
+      weight = 20
+    [[languages.en.menus.main]]
+      name = "Contact"
+      url = "/contact/"
       weight = 30
-    [[languages.en.menus.main]]
-      name = "Newsletter"
-      url = "/newsletter/"
-      weight = 40
-    [[languages.en.menus.main]]
-      name = "Search"
-      url = "/search/"
-      weight = 50
 
   [languages.pt]
     languageName = "Português"
     languageCode = "pt-br"
     contentDir = "content/pt"
     weight = 2
-    [languages.pt.params]
-      homeInfoParams = { Title = "Ed Barros", Content = "Tecnologia, churrasco, jiu-jitsu e liberdade." }
     [[languages.pt.menus.main]]
-      name = "Categorias"
-      url = "/pt/categories/"
+      name = "Artigos"
+      url = "/pt/artigos/"
       weight = 10
-    [[languages.pt.menus.main]]
-      name = "Tags"
-      url = "/pt/tags/"
-      weight = 20
     [[languages.pt.menus.main]]
       name = "Sobre"
       url = "/pt/sobre/"
+      weight = 20
+    [[languages.pt.menus.main]]
+      name = "Contato"
+      url = "/pt/contato/"
       weight = 30
-    [[languages.pt.menus.main]]
-      name = "Newsletter"
-      url = "/pt/newsletter/"
-      weight = 40
-    [[languages.pt.menus.main]]
-      name = "Busca"
-      url = "/pt/search/"
-      weight = 50

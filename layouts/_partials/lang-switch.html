@@ -1,0 +1,14 @@
+<span class="lang-switch">
+  {{- $page := . -}}
+  {{- range .Site.Languages }}
+  {{- $lang := .Lang -}}
+  {{- $langName := .LanguageName -}}
+  {{- if eq $lang $page.Site.Language.Lang }}<span class="lang-on" aria-label="{{ $langName }}">{{ $lang | upper }}</span>
+  {{- else }}
+    {{- $target := "" -}}
+    {{- range $page.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end -}}
+    {{- if $target }}<a href="{{ $target }}" hreflang="{{ $lang }}" aria-label="{{ $langName }}">{{ $lang | upper }}</a>
+    {{- else }}<a href="{{ if eq $lang "en" }}/{{ else }}/{{ $lang }}/{{ end }}" hreflang="{{ $lang }}" aria-label="{{ $langName }}">{{ $lang | upper }}</a>{{ end }}
+  {{- end }}
+  {{- end }}
+</span>

@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-name">{{ .Site.Title }}</div>
+      {{ with .Site.Params.profile.email }}<a class="footer-email" href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+    </div>
+    {{ partial "social-icons.html" . }}
+  </div>
+</footer>

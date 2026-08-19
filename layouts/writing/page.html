@@ -1,0 +1,10 @@
+{{- /*
+  Section-scoped override for post pages (content/en/writing/*.md).
+  This Hugo version resolves Kind="page" to a template named "page.html",
+  and a section-scoped layouts/<section>/page.html wins over the root
+  layouts/page.html (which serves plain pages like about/contact). See
+  layouts/_partials/post-single.html for the shared markup.
+*/ -}}
+{{- define "main" }}
+{{ partial "post-single.html" . }}
+{{- end }}

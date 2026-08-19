@@ -7,8 +7,8 @@ post:
 ifndef SLUG
 	$(error Usage: make post SLUG=my-post-slug)
 endif
-	$(HUGO) new content/en/posts/$(SLUG).md
-	$(HUGO) new content/pt/posts/$(SLUG).md
+	$(HUGO) new content/en/writing/$(SLUG).md
+	$(HUGO) new content/pt/artigos/$(SLUG).md
 	@echo "Created EN+PT pair for '$(SLUG)'. Write both, set draft: false on both, push."
 
 ## Live preview including drafts

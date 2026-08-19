@@ -1,0 +1,6 @@
+{{- with .Site.Params.newsletter.kitFormId }}
+<div class="newsletter-signup" style="margin:48px 0;padding:32px;background:var(--panel);border:1px solid var(--border);">
+  <h3 style="color:var(--text);">{{ i18n "newsletterTitle" }}</h3>
+  <script async data-uid="{{ . }}" src="https://barrosef.kit.com/{{ . }}/index.js"></script>
+</div>
+{{- end }}

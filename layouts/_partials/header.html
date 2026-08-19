@@ -1,0 +1,9 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+    <nav class="site-nav">
+      {{ range .Site.Menus.main }}<a href="{{ .URL | absURL }}">{{ .Name }}</a>{{ end }}
+      {{ partial "lang-switch.html" . }}
+    </nav>
+  </div>
+</header>

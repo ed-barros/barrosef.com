@@ -1,7 +1,7 @@
-{{- if eq .Type "posts" }}
+{{- if or (eq .Type "writing") (eq .Type "artigos") }}
 {{ partial "newsletter-form.html" . }}
 {{- if .Site.Params.giscus.repo }}
-<div class="giscus" style="margin-top:2rem;">
+<div class="giscus" style="margin-top:48px;padding:32px;background:var(--panel);border:1px solid var(--border);">
   <script src="https://giscus.app/client.js"
           data-repo="{{ .Site.Params.giscus.repo }}"
           data-repo-id="{{ .Site.Params.giscus.repoId }}"
