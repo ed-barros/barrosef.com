@@ -40,6 +40,22 @@
     --rule: #3a2f27;
     --accent: #c98a4b;
     --code-surface: #141110;
+
+    /* Re-declare the PaperMod mapping layer here too: PaperMod's own
+       theme-vars.css re-declares these same nine variables under
+       :root[data-theme="dark"] at equal specificity (0,2,0), so a
+       single mapping in the bare :root above loses to it by load
+       order for any JS-enabled dark-preference visitor. */
+    --theme: var(--paper);
+    --entry: var(--surface);
+    --primary: var(--ink);
+    --secondary: var(--muted);
+    --tertiary: var(--rule);
+    --content: var(--ink);
+    --border: var(--rule);
+    --code-bg: var(--code-surface);
+    --code-block-bg: var(--code-surface);
+
     color-scheme: dark;
   }
 }
@@ -52,6 +68,20 @@
   --rule: #3a2f27;
   --accent: #c98a4b;
   --code-surface: #141110;
+
+  /* Same PaperMod mapping layer, repeated for the explicit dark-theme
+     attribute (specificity 0,2,0) so it wins over PaperMod's own
+     theme-vars.css rule of equal specificity regardless of load order. */
+  --theme: var(--paper);
+  --entry: var(--surface);
+  --primary: var(--ink);
+  --secondary: var(--muted);
+  --tertiary: var(--rule);
+  --content: var(--ink);
+  --border: var(--rule);
+  --code-bg: var(--code-surface);
+  --code-block-bg: var(--code-surface);
+
   color-scheme: dark;
 }
 

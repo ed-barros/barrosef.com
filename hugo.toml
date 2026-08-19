@@ -16,6 +16,10 @@ enableEmoji = true
 [outputs]
   home = ["HTML", "RSS", "JSON"] # JSON feeds PaperMod's built-in fuzzy search
 
+[markup]
+  [markup.highlight]
+    noClasses = false # emit .chroma classes so our palette-derived syntax scheme in 04-components.css applies, instead of Hugo's default inline Monokai colors
+
 [params]
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -32,6 +36,25 @@ enableEmoji = true
 
   [params.newsletter]
     kitFormId = "" # Kit (ConvertKit) embed form UID; empty hides the form
+
+  [[params.socialIcons]]
+    name = "instagram"
+    url = "https://www.instagram.com/barrosef/"
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/barrosef/"
+  [[params.socialIcons]]
+    name = "x"
+    url = "https://x.com/barrosef2"
+  [[params.socialIcons]]
+    name = "tiktok"
+    url = "https://www.tiktok.com/@barrosef"
+  [[params.socialIcons]]
+    name = "facebook"
+    url = "https://www.facebook.com/ed.barros.9231"
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/barrosef"
 
   [params.giscus]
     repo = ""       # "ed-barros/barrosef.com" once Discussions is enabled

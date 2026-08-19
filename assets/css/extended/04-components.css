@@ -63,6 +63,24 @@ code {
    (forces the theme to emit <details open>) — do not remove that param,
    or every rail ToC on the site silently disappears again. */
 .rail-toc summary { display: none; }
+/* PaperMod's details.toc ships as a filled, bordered card (background:
+   var(--code-bg); border: 1px solid var(--border)) and pads its .inner
+   with 2.4rem side margins. In a 180px rail that produces a boxed,
+   cramped block; the spec wants the ToC to sit in the margin like a
+   reader's pencil note, not in a collapsed card. Flatten both. */
+.rail-toc details.toc { background: none; border: 0; margin: 0; }
+.rail-toc details .inner { margin: 0; padding: 0; }
+/* translation_list.html emits a leading literal "&nbsp;|&nbsp;" as a bare
+   text node (not wrapped in any element) ahead of its <span>/<ul> —
+   designed to read inline after other rail-meta fields. As a standalone
+   rail block that text node renders as a stray "|" with nothing before
+   it. A bare text node has no selector to target directly (the theme's
+   list items are all real translations, so `li:first-child` would hide
+   a genuine language link instead), so zero the container's font-size
+   to collapse it and restore size only on the real content elements. */
+.rail-translations { font-size: 0; }
+.rail-translations span,
+.rail-translations .i18n_list { font-size: 0.8rem; }
 
 /* --- Prose ---------------------------------------------------------- */
 .post-content a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
@@ -87,11 +105,21 @@ code {
 .post-content hr { border: 0; border-top: 1px solid var(--rule); }
 
 /* --- Code: ink on parchment, never a dark editor slab --------------- */
+/* Both declarations below are forced: PaperMod's own .md-content pre code
+   rule (assets/css/common/md-content.css) hardcodes color to a pale grey
+   at higher specificity than .post-content code (1 class + 2 elements vs.
+   1 class + 1 element), so the forced color keeps that hardcoded grey —
+   sized for a dark editor slab — from winning as the inherited base color
+   for every Chroma token not explicitly recolored below (operators,
+   names, punctuation), which would reproduce the exact illegibility this
+   fix exists to remove. The forced background is kept defensively for
+   the same specificity gap, though --code-block-bg now resolves to the
+   same --code-surface token either way. */
 .post-content pre,
 .post-content code,
 .highlight pre {
   background: var(--code-surface) !important;
-  color: var(--ink);
+  color: var(--ink) !important;
   border: 1px solid var(--rule);
 }
 .chroma .k, .chroma .kd, .chroma .kn { color: var(--accent); font-weight: 600; }

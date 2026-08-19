@@ -42,7 +42,10 @@
   .main .post-entry,
   .main .archive-posts,
   .main .terms-tags,
-  .main .search-header,
+  .main .first-entry,
+  .main .home-info,
+  .main .searchbox,
+  .main .pagination,
   .main #searchResults {
     max-width: var(--prose-width);
     margin-left: calc(var(--rail-width) + var(--rail-gap));
