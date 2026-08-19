@@ -1,7 +1,6 @@
 ---
 title: "Sobre"
 translationKey: "about"
-url: "/sobre/"
 description: "Quem é Ed Barros e do que trata este site."
 ---
 
