@@ -37,6 +37,10 @@ enableEmoji = true
     category = ""
     categoryId = ""
 
+  [params.assets]
+    theme_color = "#f4ece0"
+    msapplication_TileColor = "#f4ece0"
+
 [languages]
   [languages.en]
     languageName = "English"

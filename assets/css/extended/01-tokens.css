@@ -1,0 +1,63 @@
+/* Design tokens. Loaded after PaperMod core, so these win.
+   Dark mode is declared twice on purpose: PaperMod's inline script sets
+   data-theme, but a no-JS reader must still get lamplight from the media query. */
+
+:root {
+  --paper: #f4ece0;
+  --surface: #faf5ec;
+  --ink: #2f2a24;
+  --muted: #6b6157;
+  --rule: #ddd0bd;
+  --accent: #6d3f1d;
+  --code-surface: #ece0cd;
+
+  --prose-width: 660px;
+  --rail-width: 180px;
+  --rail-gap: 40px;
+
+  --theme: var(--paper);
+  --entry: var(--surface);
+  --primary: var(--ink);
+  --secondary: var(--muted);
+  --tertiary: var(--rule);
+  --content: var(--ink);
+  --border: var(--rule);
+  --code-bg: var(--code-surface);
+  --code-block-bg: var(--code-surface);
+
+  --radius: 0;
+  --main-width: 880px;
+  --nav-width: 880px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1c1714;
+    --surface: #241d19;
+    --ink: #e8ddcb;
+    --muted: #a2957f;
+    --rule: #3a2f27;
+    --accent: #c98a4b;
+    --code-surface: #141110;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #1c1714;
+  --surface: #241d19;
+  --ink: #e8ddcb;
+  --muted: #a2957f;
+  --rule: #3a2f27;
+  --accent: #c98a4b;
+  --code-surface: #141110;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--theme);
+  color: var(--content);
+}
+
+a { color: var(--accent); }
