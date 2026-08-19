@@ -12,7 +12,7 @@
   </p>
   {{ end }}
   <div class="hero-actions">
-    <a class="btn btn-primary" href="{{ "contact/" | absLangURL }}">{{ i18n "getInTouch" }}</a>
+    <a class="btn btn-primary" href="{{ i18n "contactURL" }}">{{ i18n "getInTouch" }}</a>
     {{ with $p.linkedin }}<a class="btn btn-ghost" href="{{ . }}">LinkedIn</a>{{ end }}
   </div>
 </section>
@@ -57,6 +57,6 @@
 </section>
 
 <section class="wrap personal-note">
-  <p>{{ i18n "personalNote" }} <a href="{{ "about/" | absLangURL }}">{{ i18n "moreAboutThat" }}</a>.</p>
+  <p>{{ i18n "personalNote" }} <a href="{{ i18n "aboutURL" }}">{{ i18n "moreAboutThat" }}</a>.</p>
 </section>
 {{ end }}

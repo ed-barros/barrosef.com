@@ -16,15 +16,14 @@
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* IBM Plex Sans is served as a single variable-font file (wght 100-700) by
-   Google Fonts; all three static weights below point at the same physical
-   file (static/fonts/ibmplexsans-400.woff2) so the browser renders the
-   correct instance from its wght axis instead of us shipping three
-   duplicate ~45KB downloads. IBM Plex Mono ships as true static per-weight
-   files. */
-@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/ibmplexsans-400.woff2") format("woff2"); }
-@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/ibmplexsans-400.woff2") format("woff2"); }
-@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/ibmplexsans-400.woff2") format("woff2"); }
+/* IBM Plex Sans is self-hosted as a single variable-font file (static/fonts/
+   ibmplexsans-400.woff2, published to /fonts/) covering the wght axis from
+   100-700, so one @font-face with a weight range lets the browser pick the
+   correct instance for 400/500/600 use instead of us shipping three
+   duplicate ~45KB downloads or declaring three rules against one file.
+   IBM Plex Mono ships as true static per-weight files, so it keeps one
+   @font-face per weight. */
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 100 700; font-display: swap; src: url("/fonts/ibmplexsans-400.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/ibmplexmono-400.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/ibmplexmono-500.woff2") format("woff2"); }
 

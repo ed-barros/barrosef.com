@@ -36,3 +36,9 @@ other = "There is more to life than work — barbecue, jiu-jitsu, and a fair amo
 
 [moreAboutThat]
 other = "More about that"
+
+[contactURL]
+other = "/contact/"
+
+[aboutURL]
+other = "/about/"
