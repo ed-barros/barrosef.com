@@ -1,0 +1,38 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "A · Executive Brief", "x": 0, "y": 0, "w": 1200, "h": 1740 },
+    { "file": "Systems.dc.html", "title": "B · Modern Systems", "x": 1320, "y": 0, "w": 1200, "h": 1720 },
+    { "file": "Institutional.dc.html", "title": "C · Institutional", "x": 2640, "y": 0, "w": 1200, "h": 1780 }
+  ],
+  "annotations": [
+    {
+      "id": "how-to-read",
+      "x": 0,
+      "y": -260,
+      "w": 640,
+      "text": "Three directions for barrosef.com — pick one, then I build it.\n\nAll three share the SAME page anatomy so you are comparing treatment, not content: positioning headline, track record, three practice areas, selected writing, a short personal line, contact.\n\nEverything in [BRACKETS] is a fact I do not know and will not invent — your roles, scale, sectors, email. You fill those in.\n\nAll three are buildable in Hugo with plain CSS and self-hosted fonts. No JavaScript framework, no third-party requests."
+    },
+    {
+      "id": "note-a",
+      "x": 0,
+      "y": 1800,
+      "w": 560,
+      "text": "A · EXECUTIVE BRIEF\n\nSerif headlines (Source Serif 4) over a warm white, navy header and stats band. Asymmetric hero: positioning left, a 'Currently' panel right.\n\nReads as: substantial, editorial, senior. Closest to a consulting firm's leadership page.\n\nTrade-off: the warm white keeps a little of the previous site's temperature. If you want a clean break, B or C."
+    },
+    {
+      "id": "note-b",
+      "x": 1320,
+      "y": 1800,
+      "w": 560,
+      "text": "B · MODERN SYSTEMS\n\nDark navy ground, IBM Plex Sans with mono for figures. The writing section flips to white for contrast.\n\nReads as: technical authority, current, built by someone who ships. Strongest signal that you are an engineer, not a manager who used to be one.\n\nTrade-off: dark-first is less conventional for executive recruiters. Confident if it fits you, risky if your audience skews traditional."
+    },
+    {
+      "id": "note-c",
+      "x": 2640,
+      "y": 1800,
+      "w": 560,
+      "text": "C · INSTITUTIONAL\n\nWhite dominant, navy structural, centred and symmetric. Spectral serif headlines, generous rules between sections.\n\nReads as: formal, established, board-level. The safest of the three with a recruiter audience.\n\nTrade-off: safe cuts both ways — it is the least distinctive, and centred layouts can feel static. Least likely to be disliked, least likely to be remembered."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}
