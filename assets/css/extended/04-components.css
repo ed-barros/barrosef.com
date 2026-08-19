@@ -1,0 +1,138 @@
+/* --- Global: nothing is a card. ------------------------------------ */
+.post-entry,
+.first-entry,
+.entry-cover,
+.post-single,
+.paginav,
+.terms-tags a,
+.post-tags a,
+.social-icons a,
+button,
+input,
+pre,
+code {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* --- Header: the logotype ------------------------------------------ */
+.header .logo a {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.55rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.header nav .menu a {
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp" 1;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.header nav .menu a:hover { color: var(--accent); }
+.header { border-bottom: 1px solid var(--rule); }
+
+/* --- Post list: a flat list, not a grid of cards -------------------- */
+.post-entry {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 1.6rem 0;
+  transition: none;
+}
+.post-entry:hover { background: none; transform: none; }
+.entry-header h2 { font-size: 1.7rem; font-weight: 600; line-height: 1.25; }
+.entry-content { color: var(--muted); font-size: 1rem; }
+.entry-footer {
+  color: var(--muted);
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp" 1, "onum" 1;
+  letter-spacing: 0.06em;
+}
+
+/* --- Rail contents -------------------------------------------------- */
+.rail-meta, .rail-translations { line-height: 1.5; }
+.rail-toc a { color: var(--muted); text-decoration: none; }
+.rail-toc a:hover { color: var(--accent); }
+.rail-toc .details, .rail-toc summary { display: none; } /* PaperMod's ToC chrome */
+
+/* --- Prose ---------------------------------------------------------- */
+.post-content a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.post-content blockquote {
+  border-inline-start: 2px solid var(--accent);
+  background: none;
+  padding-inline-start: 1.2rem;
+  color: var(--ink);
+  hanging-punctuation: first;
+}
+/* Controller correction: smcp exists only in the 400 regular face (see
+   02-typography.css). Captions here are italic, so font-variant-caps:
+   small-caps is dropped rather than risking browser-synthesized fake caps,
+   which the design spec forbids. */
+.post-content figure figcaption,
+.post-content img + em {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+.post-content img { max-width: 100%; height: auto; }
+.post-content hr { border: 0; border-top: 1px solid var(--rule); }
+
+/* --- Code: ink on parchment, never a dark editor slab --------------- */
+.post-content pre,
+.post-content code,
+.highlight pre {
+  background: var(--code-surface) !important;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+.chroma .k, .chroma .kd, .chroma .kn { color: var(--accent); font-weight: 600; }
+.chroma .s, .chroma .s1, .chroma .s2 { color: var(--accent); }
+.chroma .c, .chroma .c1, .chroma .cm { color: var(--muted); font-style: italic; }
+.chroma .nf, .chroma .nx { color: var(--ink); }
+.chroma .m, .chroma .mi { color: var(--muted); }
+
+/* --- Tags, taxonomy, pagination ------------------------------------- */
+.post-tags a, .terms-tags a {
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp" 1;
+  letter-spacing: 0.06em;
+}
+.post-tags a:hover, .terms-tags a:hover { color: var(--accent); border-color: var(--accent); }
+.paginav { border: 0; border-top: 1px solid var(--rule); }
+.paginav a { color: var(--muted); }
+
+/* --- Post footer surfaces (newsletter + giscus) --------------------- */
+.newsletter-signup {
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  background: var(--surface);
+}
+.newsletter-signup h3 { font-family: var(--font-serif); font-weight: 600; }
+
+/* --- 404, search ---------------------------------------------------- */
+.not-found { color: var(--ink); }
+#searchbox input {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
+
+/* --- Cookie consent banner (from the blog build) -------------------- */
+#cookie-consent {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--rule) !important;
+  color: var(--ink);
+}
+#cookie-consent button {
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
