@@ -17,7 +17,17 @@ What the CV actually contains, once read properly, is much less common:
 - **Regulated and mission-critical breadth**: justice, public security, public finance, electricity, then financial services and crypto-asset exchanges at BEE4.
 - **Building the team, then handing it over**: at Sogni Sports he designed the architecture, ran the hiring that formed the team, and is leading a structured handover — which is a leadership arc, not a delivery ticket.
 
-The business-focused version of this CV leads with **the ability to operate between technology and institutions in environments where being wrong is expensive**, and treats the stack as evidence rather than as the headline.
+My initial reading was that the business-focused version should lead with **the ability to operate between technology and institutions in environments where being wrong is expensive**, treating the stack as evidence rather than headline.
+
+## DECISION (2026-08-21) — Ed overrode that, and was right to
+
+**The CV leads with technology breadth and adaptability across teams, stacks and business segments. Not with the justice sector.** Do not re-open this.
+
+His reasoning: ten years inside Ministério Público reads to a private-sector recruiter as *public sector specialist*, which narrows him rather than distinguishing him — and he is transitioning between roles, so keeping doors open matters more than being memorable to a niche. His actual sector range (financial services and crypto-asset trading, sports, energy, public security, tax, justice) is unusually wide and evidences adaptability better than depth in any one of them would.
+
+The justice-sector work stays in the CV body, where it reads as substantial experience rather than as a specialisation. The English CV header and profile were rewritten accordingly on 2026-08-21.
+
+**What this means for the site:** the same principle should govern the homepage. `params.profile.positioning` and the practice-area copy should present range and adaptability, not institutional depth. The current default hero — "I build engineering organisations that ship" — is closer to correct under this decision than the justice-led alternative would have been.
 
 ## Why this matters to the site specifically
 
